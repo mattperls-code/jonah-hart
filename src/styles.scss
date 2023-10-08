@@ -1,0 +1,220 @@
+$white: rgb(240, 240, 240);
+$michigan-blue: rgb(0, 39, 76);
+$maize: rgb(255, 203, 5);
+$overlay: rgba(0, 0, 0, 0.7);
+
+html body {
+    margin: 0;
+    padding: 0;
+    background-color: $white;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::selection {
+    background-color: $maize;
+}
+
+hr {
+    margin: 0;
+    border-color: $maize;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    padding: 0 10px;
+
+    .header-left {
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        overflow: hidden;
+
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            object-position: center;
+            transform: scale(3);
+        }
+    }
+
+    .header-text {
+        color: $michigan-blue;
+        font-size: 36px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .header-right {
+        width: 70px;
+    }
+}
+
+.page-container {
+    margin: auto;
+    padding: 10px 0;
+    width: calc(min(100vw - 20px, 800px));
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    width: calc(min(100vw - 20px, 1200px));
+
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 240px;
+        margin: 5px;
+        margin-top: 0;
+        margin-bottom: 10px;
+
+        img {
+            height: 240px;
+            transition: transform 0.4s;
+
+            transform: scale(1.1);
+        }
+
+        img:hover {
+            transform: scale(1);
+        }
+    }
+}
+
+.gallery-focus-overlay {
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $overlay;
+    backdrop-filter: blur(5px);
+
+    img {
+        max-width: calc(100vw - 40px);
+        max-height: calc(100vh - 40px);
+    }
+}
+
+.carousel-container {
+    position: relative;
+    width: calc(min(100vw - 20px, 800px));
+    height: calc(0.5 * min(100vw - 20px, 800px));
+    border-radius: 10px;
+    overflow: hidden;
+
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.legacy-text {
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
+    color: $michigan-blue;
+}
+
+h2 {
+    font-size: 24px;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    color: $michigan-blue;
+}
+
+.tribute {
+    width: calc(min(100vw - 20px, 800px));
+    height: calc(0.5 * min(100vw - 20px, 800px));
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - 40px);
+    height: 70px;
+    margin: 10px 0;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $michigan-blue;
+
+    .active {
+        height: calc(100% - 4px);
+        border-bottom: 4px solid $maize;
+
+        a {
+            color: $maize;
+        }
+    }
+
+    .inactive {
+        height: calc(100% - 4px);
+        border-bottom: 4px solid transparent;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .inactive a:hover {
+        border-bottom: 4px solid $white;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 20px;
+        font-size: 16px;
+        font-family: 'Roboto Slab', serif;
+        text-decoration: none;
+        text-align: center;
+        transition: border 0.2s;
+
+        .nav-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.carousel {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.scroll-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
